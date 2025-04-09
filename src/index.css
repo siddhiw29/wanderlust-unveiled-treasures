@@ -73,8 +73,9 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gradient-to-b from-blue-50 to-amber-50 min-h-screen text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -101,6 +102,7 @@
 @layer components {
   .hero-section {
     @apply relative min-h-[70vh] flex items-center justify-center bg-cover bg-center text-white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
 
   .hero-section::before {
@@ -108,7 +110,7 @@
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:scale-[1.02] hover:-translate-y-1;
+    @apply transition-all duration-300 hover:shadow-lg hover:scale-[1.02] hover:-translate-y-1 bg-white/90 backdrop-blur-sm;
   }
 
   .section-heading {
@@ -117,5 +119,10 @@
 
   .section-heading::after {
     @apply content-[''] absolute bottom-0 left-0 w-24 h-1 bg-primary rounded;
+  }
+  
+  .bg-pattern-section {
+    @apply bg-white bg-opacity-80 relative overflow-hidden;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f3f4f6' fill-opacity='0.6'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
 }

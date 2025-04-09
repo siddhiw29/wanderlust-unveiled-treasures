@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const GroupTravelCTA = () => {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-pattern-section">
       <div className="container mx-auto px-4 text-center">
         <div className="max-w-3xl mx-auto">
           <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
