@@ -1,7 +1,10 @@
 
-import { Award } from 'lucide-react';
+import { useState } from 'react';
+import { Award, MessageCircle, ShoppingBag } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { toast } from "@/hooks/use-toast";
 
 interface ArtisanCardProps {
   name: string;
@@ -20,6 +23,22 @@ const ArtisanCard = ({
   craft, 
   years 
 }: ArtisanCardProps) => {
+  const [showDetails, setShowDetails] = useState(false);
+  
+  const handleContactClick = () => {
+    toast({
+      title: "Contact Request Sent",
+      description: `${name} will respond to your inquiry soon`,
+    });
+  };
+  
+  const handleShopClick = () => {
+    toast({
+      title: "Shopping Section",
+      description: `Browsing ${name}'s ${craft} collection`,
+    });
+  };
+
   return (
     <Card className="overflow-hidden card-hover">
       <div className="relative h-48 overflow-hidden">
@@ -42,7 +61,36 @@ const ArtisanCard = ({
             </Badge>
           </div>
           <Badge className="mb-2" variant="secondary">{craft}</Badge>
-          <p className="text-sm text-muted-foreground">{description}</p>
+          <p className="text-sm text-muted-foreground mb-4">
+            {showDetails ? description : `${description.substring(0, 100)}...`}
+            <button 
+              className="text-primary font-medium ml-1"
+              onClick={() => setShowDetails(!showDetails)}
+            >
+              {showDetails ? 'Show less' : 'Read more'}
+            </button>
+          </p>
+          
+          <div className="flex flex-wrap gap-2">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="flex items-center gap-1"
+              onClick={handleContactClick}
+            >
+              <MessageCircle className="h-4 w-4" />
+              Contact Artisan
+            </Button>
+            <Button 
+              variant="default" 
+              size="sm" 
+              className="flex items-center gap-1"
+              onClick={handleShopClick}
+            >
+              <ShoppingBag className="h-4 w-4" />
+              Shop Crafts
+            </Button>
+          </div>
         </div>
       </CardContent>
     </Card>
