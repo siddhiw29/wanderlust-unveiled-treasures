@@ -24,7 +24,7 @@ const SearchHero = () => {
   };
 
   return (
-    <div className="hero-section bg-[url('https://images.unsplash.com/photo-1524230659092-07f99a75c673?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')] bg-cover bg-center">
+    <div className="hero-section bg-[url('https://images.unsplash.com/photo-1524230659092-07f99a75c673?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=8')] bg-cover bg-center">
       <div className="container mx-auto px-4 py-24 relative z-10 text-center">
         <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-md">
           Discover India's Hidden Treasures <br className="hidden md:block" />
